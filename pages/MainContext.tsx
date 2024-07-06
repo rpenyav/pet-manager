@@ -1,19 +1,22 @@
 import React, { ReactNode } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Animated } from "react-native";
 import BackgroundGlobal from "../components/BackgroundGlobal";
-import BottomNavigation from "../components/BottomNavigation";
-// import HeaderGlobal from "../components/HeaderGlobal";
+import { useNavigationContext } from "../contexts/NavigationContext";
 
 interface MainContentProps {
   children: ReactNode;
 }
 
 const MainContent: React.FC<MainContentProps> = ({ children }) => {
+  const { scrollY } = useNavigationContext();
+
   return (
     <View style={styles.container}>
       <BackgroundGlobal />
-      {/* <HeaderGlobal setShowProfile={setShowProfile} /> */}
-      <View style={styles.contentContainer}>{children}</View>
+
+      {React.Children.map(children, (child) =>
+        React.cloneElement(child as React.ReactElement, { scrollY })
+      )}
     </View>
   );
 };
@@ -21,11 +24,7 @@ const MainContent: React.FC<MainContentProps> = ({ children }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  contentContainer: {
-    flex: 1,
-    position: "relative",
-    backgroundColor: "transparent", // Asegura que el contenido sea transparente
+    margin: 0,
   },
 });
 
