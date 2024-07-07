@@ -1,32 +1,32 @@
-// Clients.tsx
-import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { RootStackParamList } from "../navigation/RootStackParamList";
-import { useNavigationContext } from "../contexts/NavigationContext";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import useScrollEffect from "../hooks/useScrollEffect";
 
-type ClientsNavigationProp = StackNavigationProp<RootStackParamList, "Clients">;
+interface ClientsProps {
+  toggleTabBarVisibility: (visible: boolean) => void;
+}
 
-type Props = {
-  navigation: ClientsNavigationProp;
-};
-
-const Clients: React.FC<Props> = () => {
-  const { scrollY } = useNavigationContext();
+const Clients: React.FC<ClientsProps> = ({ toggleTabBarVisibility }) => {
+  const { handleScroll } = useScrollEffect(toggleTabBarVisibility);
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      onScroll={handleScroll}
+      scrollEventThrottle={16}
+      contentContainerStyle={styles.container}
+    >
       <Text>Clients Screen</Text>
-    </View>
+      {/* More content to make scrolling possible */}
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    padding: 16,
   },
 });
 

@@ -10,7 +10,6 @@ import { setStatusBarHidden } from "expo-status-bar";
 // import { AuthProvider } from "./context/AuthContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import AppNavigator from "./navigation/AppNavigation";
-import { NavigationProvider } from "./contexts/NavigationContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -49,11 +48,9 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <StatusBar hidden={true} />
         <ThemeProvider>
-          <NavigationProvider>
-            <GestureHandlerRootView style={{ flex: 1 }}>
-              <AppNavigator />
-            </GestureHandlerRootView>
-          </NavigationProvider>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <AppNavigator />
+          </GestureHandlerRootView>
         </ThemeProvider>
       </SafeAreaView>
     </SafeAreaProvider>

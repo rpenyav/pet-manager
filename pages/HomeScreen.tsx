@@ -1,219 +1,33 @@
+// HomeScreen.tsx
 import React from "react";
-import { View, Text, StyleSheet, Animated } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../navigation/RootStackParamList";
-import BackgroundGlobal from "../components/BackgroundGlobal";
-import { useNavigationContext } from "../contexts/NavigationContext";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import useScrollEffect from "../hooks/useScrollEffect";
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
+interface HomeScreenProps {
+  toggleTabBarVisibility: (visible: boolean) => void;
+}
 
-type Props = {
-  navigation: HomeScreenNavigationProp;
-};
-
-const HomeScreen: React.FC<Props> = ({ navigation }) => {
-  const { scrollY } = useNavigationContext();
+const HomeScreen: React.FC<HomeScreenProps> = ({ toggleTabBarVisibility }) => {
+  const { handleScroll } = useScrollEffect(toggleTabBarVisibility);
 
   return (
-    <View style={styles.container}>
-      <BackgroundGlobal />
-      <Animated.ScrollView
-        contentContainerStyle={styles.scrollContainer}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-          { useNativeDriver: true }
-        )}
-        scrollEventThrottle={16}
-      >
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        {/* Repite este bloque de texto según sea necesario */}
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-          odit omnis! Voluptatem praesentium quo deleniti, excepturi unde quia
-          qui necessitatibus blanditiis maxime neque minima sint deserunt est
-          expedita consectetur et?
-        </Text>
-      </Animated.ScrollView>
-    </View>
+    <ScrollView
+      onScroll={handleScroll}
+      scrollEventThrottle={16}
+      contentContainerStyle={styles.container}
+    >
+      <Text>Home Screen</Text>
+      {/* More content to make scrolling possible */}
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "transparent",
-  },
-  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
     padding: 16,
-    paddingTop: 0,
-    margin: 0,
   },
 });
 

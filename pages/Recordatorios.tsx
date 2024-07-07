@@ -1,23 +1,34 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { useNavigationContext } from "../contexts/NavigationContext";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import useScrollEffect from "../hooks/useScrollEffect";
 
-const Recordatorios: React.FC = () => {
-  const { scrollY } = useNavigationContext();
+interface RecordatoriosProps {
+  toggleTabBarVisibility: (visible: boolean) => void;
+}
+
+const Recordatorios: React.FC<RecordatoriosProps> = ({
+  toggleTabBarVisibility,
+}) => {
+  const { handleScroll } = useScrollEffect(toggleTabBarVisibility);
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      onScroll={handleScroll}
+      scrollEventThrottle={16}
+      contentContainerStyle={styles.container}
+    >
       <Text>Recordatorios Screen</Text>
-    </View>
+      {/* More content to make scrolling possible */}
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    padding: 16,
   },
 });
 

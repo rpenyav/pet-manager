@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { View, StyleSheet, TouchableOpacity, Animated } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
@@ -7,13 +7,23 @@ import { useTheme } from "../contexts/ThemeContext";
 import { RootStackParamList } from "../navigation/RootStackParamList";
 
 interface BottomNavigationProps {
-  translateY: Animated.AnimatedInterpolation<number>;
+  isVisible: boolean;
 }
 
-const BottomNavigation: React.FC<BottomNavigationProps> = ({ translateY }) => {
+const BottomNavigation: React.FC<BottomNavigationProps> = ({ isVisible }) => {
   const { width } = useApplicationDimensions();
   const { theme } = useTheme();
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
+  const translateY = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(translateY, {
+      toValue: isVisible ? 0 : 80, // Ajusta el valor según sea necesario
+      duration: 300, // Duración de la animación en milisegundos
+      useNativeDriver: true,
+    }).start();
+  }, [isVisible]);
 
   return (
     <Animated.View
