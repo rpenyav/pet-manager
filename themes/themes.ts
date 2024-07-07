@@ -4,6 +4,9 @@ export const lightTheme = {
     backgroundColor: "rgba(255, 255, 255, 0.1)",
     shadowColor: "#000",
     navBargroundColor: "#F7FBF7",
+    topBargroundColor: "#F7FBF7",
+    topTextColor: "#333333",
+    svgcolorlogo: "#333333",
   },
   containerProfile: {
     backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -34,6 +37,9 @@ export const darkTheme = {
     backgroundColor: "rgba(18, 18, 18, 1)",
     shadowColor: "#000",
     navBargroundColor: "#F7FBF7",
+    topBargroundColor: "#333333",
+    topTextColor: "#F7FBF7",
+    svgcolorlogo: "#F7FBF7",
   },
   containerProfile: {
     backgroundColor: "rgba(0, 0, 0, 1)",

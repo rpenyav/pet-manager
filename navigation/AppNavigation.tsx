@@ -15,76 +15,69 @@ import MainContent from "../pages/MainContext";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-const MainStack: React.FC<{
-  toggleTabBarVisibility: (visible: boolean) => void;
-}> = ({ toggleTabBarVisibility }) => (
-  <Stack.Navigator
-    initialRouteName="Home"
-    screenOptions={{
-      headerShown: false,
-    }}
-  >
-    <Stack.Screen
-      name="Home"
-      options={{
-        headerShown: false,
-        cardStyleInterpolator: forSlide, // Usar transición deslizante lateral
-      }}
-    >
-      {() => <HomeScreen toggleTabBarVisibility={toggleTabBarVisibility} />}
-    </Stack.Screen>
-    <Stack.Screen
-      name="Clients"
-      options={{
-        headerShown: false,
-        cardStyleInterpolator: forSlideUpFade, // Usar transición de abajo hacia arriba con desvanecimiento
-      }}
-    >
-      {() => <Clients toggleTabBarVisibility={toggleTabBarVisibility} />}
-    </Stack.Screen>
-    <Stack.Screen
-      name="CasesStudy"
-      options={{
-        headerShown: false,
-        cardStyleInterpolator: forFade, // Usar transición de desvanecimiento
-      }}
-    >
-      {() => <CasesStudy toggleTabBarVisibility={toggleTabBarVisibility} />}
-    </Stack.Screen>
-    <Stack.Screen
-      name="CalendarTurns"
-      options={{
-        headerShown: false,
-        cardStyleInterpolator: forFade, // Usar transición de desvanecimiento
-      }}
-    >
-      {() => <CalendarTurns toggleTabBarVisibility={toggleTabBarVisibility} />}
-    </Stack.Screen>
-    <Stack.Screen
-      name="Recordatorios"
-      options={{
-        headerShown: false,
-        cardStyleInterpolator: forSlideUpFade, // Usar transición de abajo hacia arriba con desvanecimiento
-      }}
-    >
-      {() => <Recordatorios toggleTabBarVisibility={toggleTabBarVisibility} />}
-    </Stack.Screen>
-    {/* Otras pantallas */}
-  </Stack.Navigator>
-);
-
 const AppNavigator: React.FC = () => {
   const [isTabBarVisible, setIsTabBarVisible] = useState(true);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
   const toggleTabBarVisibility = (visible: boolean) => {
     setIsTabBarVisible(visible);
   };
 
+  const toggleHeaderVisibility = (visible: boolean) => {
+    setIsHeaderVisible(visible);
+  };
+
   return (
     <NavigationContainer>
-      <HeaderGlobal />
+      <HeaderGlobal isVisible={isHeaderVisible} />
       <MainContent>
-        <MainStack toggleTabBarVisibility={toggleTabBarVisibility} />
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="Home">
+            {() => (
+              <HomeScreen
+                toggleTabBarVisibility={toggleTabBarVisibility}
+                toggleHeaderVisibility={toggleHeaderVisibility}
+              />
+            )}
+          </Stack.Screen>
+          <Stack.Screen name="Clients">
+            {() => (
+              <Clients
+                toggleTabBarVisibility={toggleTabBarVisibility}
+                toggleHeaderVisibility={toggleHeaderVisibility}
+              />
+            )}
+          </Stack.Screen>
+          <Stack.Screen name="CasesStudy">
+            {() => (
+              <CasesStudy
+                toggleTabBarVisibility={toggleTabBarVisibility}
+                toggleHeaderVisibility={toggleHeaderVisibility}
+              />
+            )}
+          </Stack.Screen>
+          <Stack.Screen name="CalendarTurns">
+            {() => (
+              <CalendarTurns
+                toggleTabBarVisibility={toggleTabBarVisibility}
+                toggleHeaderVisibility={toggleHeaderVisibility}
+              />
+            )}
+          </Stack.Screen>
+          <Stack.Screen name="Recordatorios">
+            {() => (
+              <Recordatorios
+                toggleTabBarVisibility={toggleTabBarVisibility}
+                toggleHeaderVisibility={toggleHeaderVisibility}
+              />
+            )}
+          </Stack.Screen>
+        </Stack.Navigator>
       </MainContent>
       <BottomNavigation isVisible={isTabBarVisible} />
     </NavigationContainer>

@@ -1,13 +1,35 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+} from "react-native";
 import useScrollEffect from "../hooks/useScrollEffect";
+import useHeaderVisibility from "../hooks/useHeaderVisibility";
 
 interface CasesStudyProps {
   toggleTabBarVisibility: (visible: boolean) => void;
+  toggleHeaderVisibility: (visible: boolean) => void;
 }
 
-const CasesStudy: React.FC<CasesStudyProps> = ({ toggleTabBarVisibility }) => {
-  const { handleScroll } = useScrollEffect(toggleTabBarVisibility);
+const CasesStudy: React.FC<CasesStudyProps> = ({
+  toggleTabBarVisibility,
+  toggleHeaderVisibility,
+}) => {
+  const { handleScroll: handleTabBarScroll } = useScrollEffect(
+    toggleTabBarVisibility
+  );
+  const { handleScroll: handleHeaderScroll } = useHeaderVisibility(
+    toggleHeaderVisibility
+  );
+
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    handleTabBarScroll(event);
+    handleHeaderScroll(event);
+  };
 
   return (
     <ScrollView
@@ -16,300 +38,7 @@ const CasesStudy: React.FC<CasesStudyProps> = ({ toggleTabBarVisibility }) => {
       contentContainerStyle={styles.container}
     >
       <Text>Cases Study Screen</Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum,
-        numquam similique alias vel facere! Eum, molestiae incidunt sint,
-        minima, possimus odio dolorem distinctio sed error nobis laborum. Id,
-        harum!
-      </Text>
+      {/* More content to make scrolling possible */}
     </ScrollView>
   );
 };

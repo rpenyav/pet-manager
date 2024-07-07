@@ -1,15 +1,35 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+} from "react-native";
 import useScrollEffect from "../hooks/useScrollEffect";
+import useHeaderVisibility from "../hooks/useHeaderVisibility";
 
 interface RecordatoriosProps {
   toggleTabBarVisibility: (visible: boolean) => void;
+  toggleHeaderVisibility: (visible: boolean) => void;
 }
 
 const Recordatorios: React.FC<RecordatoriosProps> = ({
   toggleTabBarVisibility,
+  toggleHeaderVisibility,
 }) => {
-  const { handleScroll } = useScrollEffect(toggleTabBarVisibility);
+  const { handleScroll: handleTabBarScroll } = useScrollEffect(
+    toggleTabBarVisibility
+  );
+  const { handleScroll: handleHeaderScroll } = useHeaderVisibility(
+    toggleHeaderVisibility
+  );
+
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    handleTabBarScroll(event);
+    handleHeaderScroll(event);
+  };
 
   return (
     <ScrollView
