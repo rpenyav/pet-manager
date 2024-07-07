@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
 import useScrollEffect from "../hooks/useScrollEffect";
+import BackgroundGlobal from "../components/BackgroundGlobal";
 
 interface ScreenProps {
   toggleTabBarVisibility: (visible: boolean) => void;
@@ -17,14 +18,17 @@ const HomeScreen: React.FC<ScreenProps> = ({
   );
 
   return (
-    <ScrollView
-      onScroll={handleScroll}
-      scrollEventThrottle={16}
-      contentContainerStyle={styles.container}
-    >
-      <Text>Home Screen</Text>
-      {/* More content to make scrolling possible */}
-    </ScrollView>
+    <>
+      <BackgroundGlobal />
+      <ScrollView
+        onScroll={handleScroll}
+        scrollEventThrottle={16}
+        contentContainerStyle={styles.container}
+      >
+        <Text>Home Screen</Text>
+        {/* More content to make scrolling possible */}
+      </ScrollView>
+    </>
   );
 };
 
@@ -34,6 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
+    backgroundColor: "transparent",
   },
 });
 

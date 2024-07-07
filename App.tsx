@@ -10,6 +10,7 @@ import { setStatusBarHidden } from "expo-status-bar";
 // import { AuthProvider } from "./context/AuthContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import AppNavigator from "./navigation/AppNavigation";
+import BackgroundGlobal from "./components/BackgroundGlobal";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -61,5 +62,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "transparent",
   },
 });

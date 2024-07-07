@@ -33,6 +33,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ isVisible }) => {
           width,
           backgroundColor: theme.container.navBargroundColor,
           transform: [{ translateY }],
+          borderTopColor: theme.container.borderBargroundColor,
         },
       ]}
     >
@@ -40,25 +41,41 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ isVisible }) => {
         style={styles.button}
         onPress={() => navigation.navigate("Clients")}
       >
-        <Ionicons name="people-outline" size={28} color="black" />
+        <Ionicons
+          name="people-outline"
+          size={28}
+          color={theme.container.navbarIconsColor}
+        />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate("CasesStudy")}
       >
-        <Ionicons name="briefcase-outline" size={28} color="black" />
+        <Ionicons
+          name="briefcase-outline"
+          size={28}
+          color={theme.container.navbarIconsColor}
+        />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate("CalendarTurns")}
       >
-        <Ionicons name="calendar-outline" size={28} color="black" />
+        <Ionicons
+          name="calendar-outline"
+          size={28}
+          color={theme.container.navbarIconsColor}
+        />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate("Recordatorios")}
       >
-        <Ionicons name="notifications-outline" size={28} color="black" />
+        <Ionicons
+          name="notifications-outline"
+          size={28}
+          color={theme.container.navbarIconsColor}
+        />
       </TouchableOpacity>
     </Animated.View>
   );
@@ -71,7 +88,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 80,
     borderTopWidth: 1,
-    borderTopColor: "#dddddd",
+
     position: "absolute",
     bottom: 0,
   },

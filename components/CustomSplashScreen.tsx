@@ -37,7 +37,7 @@ const CustomSplashScreen: React.FC<CustomSplashScreenProps> = ({
   return (
     <View style={styles.container}>
       <LottieView
-        style={{ width: width, height: height }}
+        style={{ width: width, height: 1800 }}
         source={LOTTI_JSON}
         autoPlay
         loop

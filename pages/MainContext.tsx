@@ -8,18 +8,14 @@ interface MainContentProps {
 }
 
 const MainContent: React.FC<MainContentProps> = ({ children }) => {
-  return (
-    <View style={styles.container}>
-      <BackgroundGlobal />
-      {children}
-    </View>
-  );
+  return <View style={styles.container}>{children}</View>;
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: 0,
+    backgroundColor: "transparent",
   },
 });
 

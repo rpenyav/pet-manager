@@ -7,9 +7,14 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Canvas, ImageSVG, useSVG } from "@shopify/react-native-skia";
-import { Ionicons } from "@expo/vector-icons"; // Importa los iconos de expo
+import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "../contexts/ThemeContext";
-import { DrawerActions, useNavigation } from "@react-navigation/native"; // Importa el hook de navegación
+import {
+  DrawerActions,
+  useNavigation,
+  NavigationProp,
+} from "@react-navigation/native";
+import { RootStackParamList } from "../navigation/RootStackParamList";
 
 interface HeaderGlobalProps {
   isVisible: boolean;
@@ -19,7 +24,7 @@ const HeaderGlobal: React.FC<HeaderGlobalProps> = ({ isVisible }) => {
   const svg = useSVG(require("../assets/logoveterinaria.svg"));
   const animatedValue = useRef(new Animated.Value(isVisible ? 1 : 0)).current;
   const { theme } = useTheme();
-  const navigation = useNavigation(); // Hook para acceder a la navegación
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const [tehISV, setTehISV] = useState(60);
 
   useEffect(() => {
@@ -35,14 +40,14 @@ const HeaderGlobal: React.FC<HeaderGlobalProps> = ({ isVisible }) => {
       {
         translateY: animatedValue.interpolate({
           inputRange: [0, 1],
-          outputRange: [-60, 0], // Adjust the value as needed
+          outputRange: [-60, 0],
         }),
       },
     ],
   };
 
   useEffect(() => {
-    const isv = isVisible ? 60 : 0; // Set heights for visible and hidden states
+    const isv = isVisible ? 60 : 0;
     setTehISV(isv);
   }, [isVisible]);
 
@@ -57,21 +62,23 @@ const HeaderGlobal: React.FC<HeaderGlobalProps> = ({ isVisible }) => {
         },
       ]}
     >
-      <View style={styles.lefttbot}>
-        <Canvas style={styles.canvas}>
-          {svg && (
-            <ImageSVG
-              svg={svg}
-              width={40}
-              height={40}
-              color={theme.container.svgcolorlogo}
-            />
-          )}
-        </Canvas>
-        <Text style={[styles.text, { color: theme.container.topTextColor }]}>
-          Pet Manager
-        </Text>
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <View style={styles.lefttbot}>
+          <Canvas style={styles.canvas}>
+            {svg && (
+              <ImageSVG
+                svg={svg}
+                width={40}
+                height={40}
+                color={theme.container.svgcolorlogo}
+              />
+            )}
+          </Canvas>
+          <Text style={[styles.text, { color: theme.container.topTextColor }]}>
+            Pet Manager
+          </Text>
+        </View>
+      </TouchableOpacity>
       <View style={styles.rightbot}>
         <TouchableOpacity
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
@@ -104,8 +111,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   imageContainer: {
-    flexDirection: "column", // Alinear elementos en fila
-    alignItems: "flex-start", // Alinear elementos verticalmente en el centro
+    flexDirection: "column",
+    alignItems: "flex-start",
     paddingLeft: 10,
     height: 1,
   },
@@ -117,7 +124,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "SF-semibold",
     fontSize: 17,
-    marginLeft: 10, // Añadir margen para separar el texto del logo
+    marginLeft: 10,
   },
 });
 

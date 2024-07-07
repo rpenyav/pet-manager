@@ -14,6 +14,8 @@ import BottomNavigation from "../components/BottomNavigation";
 import HeaderGlobal from "../components/HeaderGlobal";
 import { RootStackParamList } from "../navigation/RootStackParamList";
 import MainContent from "../pages/MainContext";
+import { ThemeProvider } from "../contexts/ThemeContext";
+import { View } from "react-native";
 
 const Stack = createStackNavigator<RootStackParamList>();
 const Drawer = createDrawerNavigator();
@@ -88,16 +90,25 @@ const DrawerNavigator: React.FC<DrawerNavigatorProps> = ({
   toggleHeaderVisibility,
 }) => {
   return (
-    <Drawer.Navigator initialRouteName="MainStack">
+    <Drawer.Navigator
+      initialRouteName="MainStack"
+      screenOptions={{
+        drawerStyle: {
+          zIndex: 2, // Asegura que el drawer esté encima
+        },
+      }}
+    >
       <Drawer.Screen
         name="MainStack"
-        options={{ title: "Home", headerShown: false }}
+        options={{ title: "Home", headerShown: false, drawerLabel: () => null }}
       >
         {() => (
-          <MainStack
-            toggleTabBarVisibility={toggleTabBarVisibility}
-            toggleHeaderVisibility={toggleHeaderVisibility}
-          />
+          <>
+            <MainStack
+              toggleTabBarVisibility={toggleTabBarVisibility}
+              toggleHeaderVisibility={toggleHeaderVisibility}
+            />
+          </>
         )}
       </Drawer.Screen>
       <Drawer.Screen
@@ -127,14 +138,18 @@ const AppNavigator: React.FC = () => {
   };
 
   return (
-    <NavigationContainer>
-      <HeaderGlobal isVisible={isHeaderVisible} />
-      <DrawerNavigator
-        toggleTabBarVisibility={toggleTabBarVisibility}
-        toggleHeaderVisibility={toggleHeaderVisibility}
-      />
-      <BottomNavigation isVisible={isTabBarVisible} />
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>
+        <View style={{ flex: 1 }}>
+          <HeaderGlobal isVisible={isHeaderVisible} />
+          <DrawerNavigator
+            toggleTabBarVisibility={toggleTabBarVisibility}
+            toggleHeaderVisibility={toggleHeaderVisibility}
+          />
+          <BottomNavigation isVisible={isTabBarVisible} />
+        </View>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 };
 

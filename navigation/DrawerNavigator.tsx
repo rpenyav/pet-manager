@@ -9,7 +9,6 @@ import Recordatorios from "../pages/Recordatorios";
 import Profile from "../pages/Profile";
 import Settings from "../pages/Settings";
 import { RootStackParamList } from "../navigation/RootStackParamList";
-import { forSlide, forFade, forSlideUpFade } from "../utils/transitions";
 import MainContent from "../pages/MainContext";
 import BottomNavigation from "../components/BottomNavigation";
 
@@ -89,7 +88,7 @@ const DrawerNavigator: React.FC<DrawerNavigatorProps> = ({
     <Drawer.Navigator initialRouteName="MainStack">
       <Drawer.Screen
         name="MainStack"
-        options={{ title: "Home", headerShown: false }}
+        options={{ title: "Home", headerShown: false, drawerLabel: () => null }}
       >
         {() => (
           <MainStack
