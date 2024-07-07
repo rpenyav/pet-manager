@@ -1,8 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import { StyleSheet, Text, Animated, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Animated,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { Canvas, ImageSVG, useSVG } from "@shopify/react-native-skia";
 import { Ionicons } from "@expo/vector-icons"; // Importa los iconos de expo
 import { useTheme } from "../contexts/ThemeContext";
+import { DrawerActions, useNavigation } from "@react-navigation/native"; // Importa el hook de navegación
 
 interface HeaderGlobalProps {
   isVisible: boolean;
@@ -12,6 +19,7 @@ const HeaderGlobal: React.FC<HeaderGlobalProps> = ({ isVisible }) => {
   const svg = useSVG(require("../assets/logoveterinaria.svg"));
   const animatedValue = useRef(new Animated.Value(isVisible ? 1 : 0)).current;
   const { theme } = useTheme();
+  const navigation = useNavigation(); // Hook para acceder a la navegación
   const [tehISV, setTehISV] = useState(60);
 
   useEffect(() => {
@@ -65,9 +73,12 @@ const HeaderGlobal: React.FC<HeaderGlobalProps> = ({ isVisible }) => {
         </Text>
       </View>
       <View style={styles.rightbot}>
-        <View style={styles.profileButtonContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+          style={styles.profileButtonContainer}
+        >
           <Ionicons name="cog" size={24} color={theme.container.topTextColor} />
-        </View>
+        </TouchableOpacity>
       </View>
     </Animated.View>
   );

@@ -1,35 +1,20 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  NativeSyntheticEvent,
-  NativeScrollEvent,
-} from "react-native";
+import { ScrollView, StyleSheet, Text } from "react-native";
 import useScrollEffect from "../hooks/useScrollEffect";
-import useHeaderVisibility from "../hooks/useHeaderVisibility";
 
-interface HomeScreenProps {
+interface ScreenProps {
   toggleTabBarVisibility: (visible: boolean) => void;
   toggleHeaderVisibility: (visible: boolean) => void;
 }
 
-const HomeScreen: React.FC<HomeScreenProps> = ({
+const HomeScreen: React.FC<ScreenProps> = ({
   toggleTabBarVisibility,
   toggleHeaderVisibility,
 }) => {
-  const { handleScroll: handleTabBarScroll } = useScrollEffect(
-    toggleTabBarVisibility
-  );
-  const { handleScroll: handleHeaderScroll } = useHeaderVisibility(
+  const handleScroll = useScrollEffect(
+    toggleTabBarVisibility,
     toggleHeaderVisibility
   );
-
-  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    handleTabBarScroll(event);
-    handleHeaderScroll(event);
-  };
 
   return (
     <ScrollView

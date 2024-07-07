@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../pages/HomeScreen";
 import Clients from "../pages/Clients";
 import CasesStudy from "../pages/CasesStudy";
@@ -9,14 +8,13 @@ import CalendarTurns from "../pages/CalendarTurns";
 import Recordatorios from "../pages/Recordatorios";
 import Profile from "../pages/Profile";
 import Settings from "../pages/Settings";
-
-import BottomNavigation from "../components/BottomNavigation";
-import HeaderGlobal from "../components/HeaderGlobal";
 import { RootStackParamList } from "../navigation/RootStackParamList";
+import { forSlide, forFade, forSlideUpFade } from "../utils/transitions";
 import MainContent from "../pages/MainContext";
+import BottomNavigation from "../components/BottomNavigation";
 
-const Stack = createStackNavigator<RootStackParamList>();
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 interface MainStackProps {
   toggleTabBarVisibility: (visible: boolean) => void;
@@ -114,28 +112,4 @@ const DrawerNavigator: React.FC<DrawerNavigatorProps> = ({
   );
 };
 
-const AppNavigator: React.FC = () => {
-  const [isTabBarVisible, setIsTabBarVisible] = useState(true);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-
-  const toggleTabBarVisibility = (visible: boolean) => {
-    setIsTabBarVisible(visible);
-  };
-
-  const toggleHeaderVisibility = (visible: boolean) => {
-    setIsHeaderVisible(visible);
-  };
-
-  return (
-    <NavigationContainer>
-      <HeaderGlobal isVisible={isHeaderVisible} />
-      <DrawerNavigator
-        toggleTabBarVisibility={toggleTabBarVisibility}
-        toggleHeaderVisibility={toggleHeaderVisibility}
-      />
-      <BottomNavigation isVisible={isTabBarVisible} />
-    </NavigationContainer>
-  );
-};
-
-export default AppNavigator;
+export default DrawerNavigator;

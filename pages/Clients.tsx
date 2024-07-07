@@ -1,35 +1,20 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  NativeSyntheticEvent,
-  NativeScrollEvent,
-} from "react-native";
+import { ScrollView, StyleSheet, Text } from "react-native";
 import useScrollEffect from "../hooks/useScrollEffect";
-import useHeaderVisibility from "../hooks/useHeaderVisibility";
 
-interface ClientsProps {
+interface ScreenProps {
   toggleTabBarVisibility: (visible: boolean) => void;
   toggleHeaderVisibility: (visible: boolean) => void;
 }
 
-const Clients: React.FC<ClientsProps> = ({
+const Clients: React.FC<ScreenProps> = ({
   toggleTabBarVisibility,
   toggleHeaderVisibility,
 }) => {
-  const { handleScroll: handleTabBarScroll } = useScrollEffect(
-    toggleTabBarVisibility
-  );
-  const { handleScroll: handleHeaderScroll } = useHeaderVisibility(
+  const handleScroll = useScrollEffect(
+    toggleTabBarVisibility,
     toggleHeaderVisibility
   );
-
-  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    handleTabBarScroll(event);
-    handleHeaderScroll(event);
-  };
 
   return (
     <ScrollView
@@ -39,304 +24,214 @@ const Clients: React.FC<ClientsProps> = ({
     >
       <Text>Clients Screen</Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
-      </Text>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        ratione vel amet odio ut magnam aut saepe, omnis dolorum inventore autem
-        molestias maiores consectetur laudantium assumenda ullam atque suscipit!
-        Adipisci!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde
+        necessitatibus enim, pariatur libero soluta ipsam animi laborum illum
+        quam, maiores, possimus error. Numquam sapiente eius perferendis
+        corrupti non ab!
       </Text>
     </ScrollView>
   );
